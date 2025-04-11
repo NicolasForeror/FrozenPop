@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Frozen Pop</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/carrito.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <img src="images/logo.png" alt="Frozen Pop Logo" class="logo">
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="carrito.html" class="active">Carrito</a></li>
+                    <li><a href="acerca.html">Nosotros</a></li>
+                    <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Carrito Section -->
+    <section class="carrito">
+        <div class="container">
+            <h2 class="section-title">Tu Carrito de Compras</h2>
+
+            <div id="cart-items" class="cart-items">
+                <!-- Aquí se mostrarán los productos del carrito -->
+            </div>
+
+            <div class="cart-summary">
+                <h3>Total: <span id="total-price">$0</span></h3>
+                <button class="btn btn-purchase">Realizar Pedido</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Frozen Pop. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Mostrar los productos en el carrito y calcular el total
+        function mostrarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalPriceDiv = document.getElementById('total-price');
+            let total = 0;
+            cartItemsDiv.innerHTML = '';
+
+            carrito.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <p>${item.nombre} - $${item.precio}</p>
+                    <button class="btn-remove">Eliminar</button>
+                `;
+                total += parseInt(item.precio);
+                cartItemsDiv.appendChild(itemDiv);
+
+                // Función para eliminar producto del carrito
+                itemDiv.querySelector('.btn-remove').addEventListener('click', () => {
+                    const index = carrito.indexOf(item);
+                    if (index > -1) {
+                        carrito.splice(index, 1);
+                    }
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    mostrarCarrito();
+                });
+            });
+
+            totalPriceDiv.textContent = `$${total}`;
+        }
+
+        // Llamada inicial para mostrar el carrito
+        mostrarCarrito();
+    </script>
+</body>
+</html>

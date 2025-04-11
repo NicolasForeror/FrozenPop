@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Frozen Pop</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/carrito.js" defer></script> <!-- Cargamos el JS -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <img src="images/logo.png" alt="Frozen Pop Logo" class="logo">
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tienda.html" class="active">Tienda</a></li>
+                    <li><a href="carrito.html">Carrito (<span id="carrito-count">0</span>)</a></li>
+                    <li><a href="acerca.html">Nosotros</a></li>
+                    <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tienda Section -->
+    <section class="tienda">
+        <div class="container">
+            <h2 class="section-title">Nuestras Paletas</h2>
+
+            <!-- Producto Mango -->
+            <div class="product">
+                <img src="images/mango.jpg" alt="Paleta de Mango" class="product-img">
+                <h3 class="product-title">Paleta de Mango</h3>
+                <p class="product-price">$2.000</p>
+                <button class="btn btn-add-to-cart" data-name="Paleta de Mango" data-price="2000">Agregar al carrito</button>
+            </div>
+
+            <!-- Producto Maracuyá -->
+            <div class="product">
+                <img src="images/maracuya.jpg" alt="Paleta de Maracuyá" class="product-img">
+                <h3 class="product-title">Paleta de Maracuyá</h3>
+                <p class="product-price">$2.000</p>
+                <button class="btn btn-add-to-cart" data-name="Paleta de Maracuyá" data-price="2000">Agregar al carrito</button>
+            </div>
+
+            <!-- Producto Fresa -->
+            <div class="product">
+                <img src="images/fresa.jpg" alt="Paleta de Fresa" class="product-img">
+                <h3 class="product-title">Paleta de Fresa</h3>
+                <p class="product-price">$2.000</p>
+                <button class="btn btn-add-to-cart" data-name="Paleta de Fresa" data-price="2000">Agregar al carrito</button>
+            </div>
+
+            <!-- Puedes agregar más productos de la misma manera -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Frozen Pop. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
